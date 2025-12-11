@@ -184,3 +184,78 @@ a:hover { text-decoration: underline; }
   text-align: center;
 }
 
+/* ===========================
+   ANIMATIONS
+=========================== */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide-in from left */
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide-in from right */
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Glow animation on buttons */
+@keyframes glow {
+  0% { box-shadow: 0 0 5px var(--accent); }
+  50% { box-shadow: 0 0 15px var(--accent); }
+  100% { box-shadow: 0 0 5px var(--accent); }
+}
+
+/* ===========================
+   Apply Animations to Sections
+=========================== */
+
+/* Fade-in whole sections on scroll */
+.section, 
+.hero,
+.project-card,
+.card,
+.contact-card {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Delay different sections for smooth flow */
+.section:nth-of-type(1) { animation-delay: 0.2s; }
+.section:nth-of-type(2) { animation-delay: 0.4s; }
+.section:nth-of-type(3) { animation-delay: 0.6s; }
+.section:nth-of-type(4) { animation-delay: 0.8s; }
+
+/* Slide effects */
+.grid-2 > div:first-child {
+  animation: slideLeft 1s ease forwards;
+}
+.grid-2 > div:last-child {
+  animation: slideRight 1s ease forwards;
+}
+
+/* Hover animation on cards */
+.project-card:hover,
+.card:hover,
+.contact-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+  border-color: var(--accent);
+}
+
+/* Glow animation on primary buttons */
+.btn.primary:hover {
+  animation: glow 1.5s infinite;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
